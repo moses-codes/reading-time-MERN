@@ -7,7 +7,6 @@
   display: flex;
   justify-content: flex-start;
   list-style-type: none;
-  border: 1px red solid;
 }
 
 .form {
