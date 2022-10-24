@@ -10,13 +10,15 @@ function App() {
   const [books, setBooks] = React.useState([{}])
 
   React.useEffect(() => {
-    fetch('http://localhost:3001/api')
-      .then(res => res.json())
-      .then(data => {
-        console.log(data.books)
-        setBooks(data.books)
-      })
-  }, [])
+    console.log('Effect Ran');
+    async function getData() {
+      const res = await fetch('http://localhost:3001/api');
+      const data = await res.json();
+      setBooks(data);
+    }
+    getData();
+  }, []);
+  console.log(books);
 
 
   const bookShelf = books.map(book => {
